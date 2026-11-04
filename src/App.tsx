@@ -24,10 +24,10 @@ function App() {
 
         <div className={styles.demoCard}>
           <p className={styles.demoHint}>
-            Follow the <strong>Firebase Setup</strong> guide under{' '}
-            <strong>Project</strong> on the course website to connect your own Firebase
-            project. Once connected, add a name below - it&apos;s written to your Realtime
-            Database under <code>students</code> and streamed back live with{' '}
+            We followed the <strong>Firebase Setup</strong> guide under{' '}
+            <strong>Project</strong> on the course website and is now connect our own
+            Firebase project. We can write our names below and it&apos;s written to our
+            Realtime Database under <code>students</code> and streamed back live with{' '}
             <code>src/components/FirebaseExample.tsx</code>.
           </p>
           <FirebaseExample />

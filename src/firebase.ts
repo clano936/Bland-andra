@@ -2,13 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: 'your-api-key',
-  authDomain: 'your-project.firebaseapp.com',
-  databaseURL: 'https://your-project-default-rtdb.firebaseio.com',
-  projectId: 'your-project',
-  storageBucket: 'your-project.firebasestorage.app',
-  messagingSenderId: 'your-messaging-sender-id',
-  appId: 'your-app-id'
+  apiKey: 'AIzaSyCWKwTwyxmhFN29frf7evS4Mmih9pYVqzw',
+  authDomain: 'our-koma-project.firebaseapp.com',
+  databaseURL: 'https://our-koma-project-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'our-koma-project',
+  storageBucket: 'our-koma-project.firebasestorage.app',
+  messagingSenderId: '399634655022',
+  appId: '1:399634655022:web:2dcc479b98a87a8b2ebcbf'
 };
 
 const app = initializeApp(firebaseConfig);
