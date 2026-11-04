@@ -9,6 +9,7 @@ function App() {
     <>
       <section className={styles.center}>
         <div className={styles.hero}>
+          <p> tjo</p>
           <img src={heroImg} className={styles.base} width="170" height="179" alt="" />
           <img src={reactLogo} className={styles.framework} alt="React logo" />
           <img src={viteLogo} className={styles.vite} alt="Vite logo" />
