@@ -2,7 +2,7 @@ import styles from './App.module.css';
 import heroImg from './assets/hero.png';
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
-import FirebaseExample from './components/FirebaseExample';
+import GameList from './components/GameList';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <img src={viteLogo} className={styles.vite} alt="Vite logo" />
         </div>
         <div>
-          <h1>React + Vite + Firebase</h1>
+          <h1>Jippi</h1>
           <p>
             A starter template wiring up <code>React</code> and{' '}
             <code>Firebase Realtime Database</code>, served with <code>Vite</code> for
@@ -22,54 +22,10 @@ function App() {
           </p>
         </div>
 
-        <div className={styles.demoCard}>
-          <p className={styles.demoHint}>
-            We followed the <strong>Firebase Setup</strong> guide under{' '}
-            <strong>Project</strong> on the course website and is now connect our own
-            Firebase project. We can write our names below and it&apos;s written to our
-            Realtime Database under <code>students</code> and streamed back live with{' '}
-            <code>src/components/FirebaseExample.tsx</code>.
-          </p>
-          <FirebaseExample />
-        </div>
+        <GameList />
       </section>
 
-      <div className={styles.ticks} />
-
       <section className={styles.nextSteps}>
-        <div className={styles.docs}>
-          <svg className={styles.icon} role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon" />
-          </svg>
-          <h2>Documentation</h2>
-          <p>Read up on the stack this starter is built on</p>
-          <ul>
-            <li>
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
-                <img className={styles.logo} src={reactLogo} alt="" />
-                React
-              </a>
-            </li>
-            <li>
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
-                <img className={styles.logo} src={viteLogo} alt="" />
-                Vite
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://firebase.google.com/docs/database"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <svg className={styles.buttonIcon} role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#firebase-icon" />
-                </svg>
-                Firebase
-              </a>
-            </li>
-          </ul>
-        </div>
         <div className={styles.social}>
           <svg className={styles.icon} role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon" />
