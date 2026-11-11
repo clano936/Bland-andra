@@ -1,29 +1,22 @@
+import { Link } from 'react-router';
+
+import type { GameProps } from '../types/game';
 import styles from './OneGame.module.css';
 
-interface GameProps {
-  id: string;
-  name: string;
-  description: string;
-  time: number;
-  people: number;
-  imageUrl: string;
-  spicy: boolean;
-  family: boolean;
-  drinking: boolean;
-  love: boolean;
-  deep: boolean;
-  flexible: boolean;
-  saved: boolean;
+// Komponenten tar emot ett helt spelobjekt.
+interface OneGameProps {
+  game: GameProps;
 }
 
-export default function OneGame({ name, description }: GameProps) {
+export default function Game({ game }: OneGameProps) {
   return (
     <div className={styles.demoCard}>
-      <p className={styles.demoHint}>{description}</p>
-
-      <div className={styles.gameDemo}>
-        <h3>{name}</h3>
-      </div>
+      <h3>
+        <Link to={`/game/${game.id}`}>{game.name}</Link>
+      </h3>
+      <p className={styles.demoHint}>{game.description}</p>
+      <p>Speltid: {game.time} minuter</p>
+      <p>Antal spelare: {game.people}</p>
     </div>
   );
 }

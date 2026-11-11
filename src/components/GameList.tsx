@@ -2,24 +2,8 @@ import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
 import { db } from '../firebase';
+import type { GameProps } from '../types/game';
 import OneGame from './OneGame';
-
-// Alla spel ska inehålla egenskaperna som fins i interface
-interface GameProps {
-  id: string;
-  name: string;
-  description: string;
-  time: number;
-  people: number;
-  imageUrl: string;
-  spicy: boolean;
-  family: boolean;
-  drinking: boolean;
-  love: boolean;
-  deep: boolean;
-  flexible: boolean;
-  saved: boolean;
-}
 
 export default function GameList() {
   // State som innehåller alla spel som hämtas från Firebase.
@@ -66,13 +50,17 @@ export default function GameList() {
     return unsubscribe;
   }, []);
 
+  if (error) {
+    return <p>{error}</p>;
+  }
+  if (games.length === 0) {
+    return <p>Inga spel hittades.</p>;
+  }
+
   return (
     <div>
-      {/* Visar felmeddelande om ett fel har uppstått. */}
-      {error && <p>{error}</p>}
-      hihi
       {games.map((game) => (
-        <OneGame key={game.id} {...game} />
+        <OneGame key={game.id} game={game} />
       ))}
     </div>
   );
