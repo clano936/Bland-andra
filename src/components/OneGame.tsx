@@ -10,13 +10,11 @@ interface OneGameProps {
 
 export default function Game({ game }: OneGameProps) {
   return (
-    <div className={styles.demoCard}>
-      <h3>
-        <Link to={`/game/${game.id}`}>{game.name}</Link>
-      </h3>
+    <Link to={`/game/${game.id}`} className={styles.demoCard}>
+      <h3>{game.name}</h3>
       <p className={styles.demoHint}>{game.description}</p>
       <p>Speltid: {game.time} minuter</p>
       <p>Antal spelare: {game.people}</p>
-    </div>
+    </Link>
   );
 }
