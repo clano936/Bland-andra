@@ -1,14 +1,15 @@
-.gameDemo {
+.demoCard {
+  /* Gör så att länken beter sig som en hel flex box */
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-.demoCard {
   width: 100%;
   max-width: 560px;
   text-align: left;
   box-sizing: border-box;
+  text-decoration: none;
+
+  /* Form, bakgrund och ram */
   margin-top: 4px;
   padding: 28px 32px;
   border: 1px solid var(--border);
@@ -16,11 +17,46 @@
   background: var(--card-background);
   box-shadow: var(--shadow);
 
-  @media (max-width: 1024px) {
-    padding: 20px 24px;
-  }
+  /* Indikera att hela kortet är klickbart */
+  cursor: pointer;
 }
 
+/* När man klickar ner (tryckkänsla) */
+.demoCard:active {
+  transform: translateY(0);
+}
+
+/* Tillgänglighet: tydlig markering när man tabbar med tangentbordet */
+.demoCard:focus-visible {
+  outline: 2px solid var(--shadow);
+  outline-offset: 2px;
+}
+
+/* Rubriken */
+.demoCard h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+/* Beskrivningen / ledtråden */
+.demoHint {
+  margin: 0 0 12px 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Metadata-raderna (tid och antal spelare) */
+.demoCard p:not(.demoHint) {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/**Gammal CSS
+/* 
 .gameForm {
   display: flex;
   gap: 8px;
@@ -112,3 +148,4 @@
   white-space: nowrap;
   border: 0;
 }
+*/
