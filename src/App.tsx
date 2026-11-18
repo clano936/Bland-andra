@@ -107,7 +107,7 @@ function App() {
   });
 
   return (
-    <section className={styles.center}>
+    <section className={styles.page}>
       <Header
         search={search}
         onSearchChange={setSearch}
