@@ -23,13 +23,11 @@ Global CSS variables used by all pages
   --color-blue: #1a1894;
   --color-orange: #ff7f00;
 
-  /*Supporting light dark mode*/ 
+  /*Supporting light dark mode*/
   color-scheme: light dark;
 
   /*Larger, softer shadow combined with a smaller, tighter one*/
-  --shadow:
-  rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
-  rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   /*Font families*/
   --mono: ui-monospace, Consolas, monospace;
@@ -40,7 +38,7 @@ Global CSS variables used by all pages
   line-height: 1.5;
   letter-spacing: 0.18px;
 
-/*Default page colors*/
+  /*Default page colors*/
   color: var(--text);
   background: var(--background);
 
@@ -56,7 +54,6 @@ Dark mode styles
 =======================*/
 @media (prefers-color-scheme: dark) {
   :root {
-
     /*Default text/background colors*/
     --text: #9ca3af;
     --text-heading: #f3f4f6;
@@ -77,10 +74,8 @@ Dark mode styles
     --color-blue: #1a1894;
     --color-orange: #ff7f00;
 
-    /*Larger, softer shadow combined with a smaller, tighter one*//*Darker in dark mode*/
-    --shadow:
-    rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
-    rgba(0, 0, 0, 0.25) 0 4px 6px -2px; 
+    /*Larger, softer shadow combined with a smaller, tighter one*/ /*Darker in dark mode*/
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 }
 

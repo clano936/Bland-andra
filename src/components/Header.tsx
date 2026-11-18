@@ -1,9 +1,7 @@
 import { useState } from 'react';
 
 import styles from '../App.module.css';
-import heroImg from '../assets/hero.png';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '../assets/vite.svg';
+import logga from '../assets/logga.png';
 import type { FilterValues } from '../types/filterValues';
 import FilterPanel from './FilterPanel';
 import SearchBar from './SearchBar';
@@ -24,13 +22,11 @@ export default function Header({
   // Styr om filterpanelen ska synas eller inte
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   return (
-    <section>
-      <div className={styles.hero}>
-        <img src={heroImg} className={styles.base} width="170" height="179" alt="" />
-        <img src={reactLogo} className={styles.framework} alt="React logo" />
-        <img src={viteLogo} className={styles.vite} alt="Vite logo" />
+    <section className="header">
+      <div className="logo">
+        <img src={logga} className={styles.base} width="170" height="179" alt="" />
       </div>
-      <div>
+      <div className="serchBar">
         <SearchBar value={search} onChange={onSearchChange} />
       </div>
       <div>
