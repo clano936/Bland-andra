@@ -5,11 +5,13 @@ export interface GameProps {
   time: number;
   people: number;
   imageUrl: string;
-  spicy: boolean;
-  family: boolean;
-  drinking: boolean;
-  love: boolean;
-  deep: boolean;
-  flexible: boolean;
-  saved: boolean;
+  categories: {
+    spicy: boolean;
+    family: boolean;
+    drinking: boolean;
+    love: boolean;
+    deep: boolean;
+    flexible: boolean;
+    saved: boolean;
+  };
 }

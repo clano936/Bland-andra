@@ -1,17 +1,28 @@
+import { useState } from 'react';
+
 import styles from '../App.module.css';
 import heroImg from '../assets/hero.png';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
-import FilterPanel, { type FilterValues } from './FilterPanel';
+import type { FilterValues } from '../types/filterValues';
+import FilterPanel from './FilterPanel';
 import SearchBar from './SearchBar';
 
 interface HeaderProps {
-  value: string;
-  onChange: (value: string) => void;
-  onFilterChange?: (filters: FilterValues) => void;
+  search: string;
+  onSearchChange: (value: string) => void;
+  filters: FilterValues;
+  onFilterChange: (filters: FilterValues) => void;
 }
 
-export default function Header({ value, onChange }: HeaderProps) {
+export default function Header({
+  search,
+  onSearchChange,
+  filters,
+  onFilterChange
+}: HeaderProps) {
+  // Styr om filterpanelen ska synas eller inte
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   return (
     <section>
       <div className={styles.hero}>
@@ -20,17 +31,20 @@ export default function Header({ value, onChange }: HeaderProps) {
         <img src={viteLogo} className={styles.vite} alt="Vite logo" />
       </div>
       <div>
-        <FilterPanel
-          onClose={() => {
-            console.warn('one close');
-          }}
-          onApply={(filters: FilterValues) => {
-            console.warn('Filter valda:', filters);
-          }}
-        />
+        <SearchBar value={search} onChange={onSearchChange} />
       </div>
       <div>
-        <SearchBar value={value} onChange={onChange} />
+        {/* Knapp som öppnar filterpanelen */}
+        <button onClick={() => setIsFilterOpen(!isFilterOpen)}>Filter</button>
+
+        {/* Visa filterpanelen endast när isFilterOpen är true */}
+        {isFilterOpen && (
+          <FilterPanel
+            filters={filters}
+            onChange={onFilterChange}
+            onClose={() => setIsFilterOpen(false)}
+          />
+        )}
       </div>
     </section>
   );

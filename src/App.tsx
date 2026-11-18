@@ -2,10 +2,27 @@ import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
 import styles from './App.module.css';
+//import FilterPanel from './components/FilterPanel';
 import GameList from './components/GameList';
 import Header from './components/Header';
 import { db } from './firebase';
+import type { FilterValues } from './types/filterValues';
 import type { GameProps } from './types/game';
+
+const initialFilters: FilterValues = {
+  players: 2,
+  minTime: 5,
+  maxTime: 120,
+  categories: {
+    spicy: false,
+    family: false,
+    drinking: false,
+    love: false,
+    deep: false,
+    flexible: false,
+    saved: false
+  }
+};
 
 function App() {
   // State som innehåller alla spel som hämtas från Firebase.
@@ -18,6 +35,7 @@ function App() {
   // Den tomma beroendelistan [] gör att den inte körs vid varje rendering.
   const [search, setSearch] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
+  const [filters, setFilters] = useState<FilterValues>(initialFilters);
   useEffect(() => {
     // Skapar en referens till platsen "games" i Firebase-databasen.
     const gamesRef = ref(db, 'games');
@@ -63,13 +81,32 @@ function App() {
     return <p>Inga spel hittades.</p>;
   }
 
-  const filteredGames = games.filter((game) =>
-    game.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredGames = games.filter((game) => {
+    const matchesSearch = game.name.toLowerCase().includes(search.toLowerCase());
+
+    if (!matchesSearch) {
+      return false;
+    }
+
+    const selectedCategories = Object.entries(filters.categories)
+      .filter(([category, selected]) => selected && category !== 'saved')
+      .map(([category]) => category as keyof typeof game.categories);
+
+    const matchesCategory =
+      selectedCategories.length === 0 ||
+      selectedCategories.some((cat) => game.categories[cat]);
+
+    return matchesCategory;
+  });
 
   return (
     <section className={styles.center}>
-      <Header value={search} onChange={setSearch} />
+      <Header
+        search={search}
+        onSearchChange={setSearch}
+        onFilterChange={setFilters}
+        filters={filters}
+      />
       <GameList games={filteredGames} loading={loading} />
     </section>
   );
