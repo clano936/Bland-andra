@@ -70,7 +70,7 @@ export default function OneGamePage() {
       <p>{game.description}</p>
       <p>Speltid: {game.time} minuter</p>
       <p>Antal spelare: {game.people}</p>
-      {game.imageUrl && <img src={game.imageUrl} alt={game.name} />}
+      <img src={'../assets/' + game.imageUrl} />
     </div>
   );
 }

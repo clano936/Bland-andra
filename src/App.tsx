@@ -77,6 +77,10 @@ function App() {
   if (error) {
     return <p>{error}</p>;
   }
+  if (loading) {
+    return <p>Hämtar spel från databasen...</p>;
+  }
+
   if (games.length === 0) {
     return <p>Inga spel hittades.</p>;
   }
