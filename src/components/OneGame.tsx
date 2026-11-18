@@ -15,6 +15,7 @@ export default function Game({ game }: OneGameProps) {
       <p className={styles.demoHint}>{game.description}</p>
       <p>Speltid: {game.time} minuter</p>
       <p>Antal spelare: {game.people}</p>
+      <img src={'/' + game.imageUrl} />
     </Link>
   );
 }

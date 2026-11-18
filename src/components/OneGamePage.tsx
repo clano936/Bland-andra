@@ -67,10 +67,10 @@ export default function OneGamePage() {
     <div>
       <Link to="/">← Tillbaka</Link>
       <h1>{game.name}</h1>
+      <img src={'/' + game.imageUrl} />
       <p>{game.description}</p>
       <p>Speltid: {game.time} minuter</p>
       <p>Antal spelare: {game.people}</p>
-      <img src={'../assets/' + game.imageUrl} />
     </div>
   );
 }
