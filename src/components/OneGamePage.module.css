@@ -1,0 +1,113 @@
+/* CSS for the currently loaded game page */
+
+/* Mobilcentrerad behållare */
+.container {
+  max-width: 440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  font-family: system-ui, sans-serif;
+  background-color: #faf8f5;
+}
+
+/* Solgul rundad toppsektion */
+.header {
+  background: linear-gradient(135deg, #fde047, #f97316);
+  padding: 1.5rem 1.25rem 2rem;
+}
+
+.navRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pillButton {
+  background: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.emoji {
+  font-size: 4rem;
+  margin-top: 1rem;
+}
+
+.title {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* 3 kolumner för snabbfakta */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.statCard {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Behållaren runt bilden, ger runda hörn och skugga */
+.imageWrapper {
+  width: 100%;
+  border-radius: 1.5px;
+  overflow: hidden; /* Klipper bilden så hörnen blir runda */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+.image {
+  /* 1. Prevent unwanted inline spacing and treat as a block block element */
+
+  /* 2. Make it responsive (fluid sizing) */
+  max-width: 220px;
+  height: 100px;
+
+  /* 3. Control frame fitting (prevents squishing/stretching) */
+  object-fit: cover;
+}
+/* Numrerad regellista */
+.rulesSection {
+  padding: 0 1.25rem;
+}
+
+.ruleList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ruleItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.ruleNumber {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #f97316;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}

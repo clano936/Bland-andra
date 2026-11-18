@@ -1,9 +1,10 @@
 import { get, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 import { db } from '../firebase';
 import type { GameProps } from '../types/game';
+import styles from './OneGamePage.module.css';
 
 async function getGameById(id: string | undefined): Promise<GameProps | undefined> {
   if (!id) {
@@ -19,6 +20,7 @@ async function getGameById(id: string | undefined): Promise<GameProps | undefine
 }
 
 export default function OneGamePage() {
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const [game, setGame] = useState<GameProps | undefined>();
@@ -63,14 +65,57 @@ export default function OneGamePage() {
     return <p>Spelet finns inte.</p>;
   }
 
+  function onBack() {
+    void navigate('/');
+  }
   return (
-    <div>
-      <Link to="/">← Tillbaka</Link>
-      <h1>{game.name}</h1>
-      <img src={'/' + game.imageUrl} />
-      <p>{game.description}</p>
-      <p>Speltid: {game.time} minuter</p>
-      <p>Antal spelare: {game.people}</p>
-    </div>
+    <main className={styles.container}>
+      {/* Header */}
+      <header className={styles.header}>
+        <div className={styles.navRow}>
+          <button className={styles.pillButton} onClick={onBack}>
+            ← Alla spel
+          </button>
+          <button className={styles.pillButton}>♡ Spara</button>
+        </div>
+        <div className={styles.emoji}>{game.name}</div>
+        <h1 className={styles.title}>{game.name}</h1>
+        <p>{game.name}</p>
+      </header>
+
+      {/* Snabbfakta i 3 kolumner */}
+      <div className={styles.statsGrid}>
+        <div className={styles.statCard}>
+          <div>👥</div>
+          <strong>{game.name}</strong>
+        </div>
+        <div className={styles.statCard}>
+          <div>⏱️</div>
+          <strong>{game.time} min</strong>
+        </div>
+        <div className={styles.statCard}>
+          <div>⚡</div>
+          <strong>{game.time}</strong>
+        </div>
+      </div>
+
+      {/*Bild */}
+      <div className={styles.imageWrapper}>
+        <img src={'/' + game.imageUrl} className={styles.gameImage} />
+      </div>
+      {/* Regler */}
+    </main>
   );
 }
+
+/**<section className={styles.rulesSection}>
+        <h2>Så spelar ni</h2>
+        <ol className={styles.ruleList}>
+          {game.rules.map((rule, index) => (
+            <li key={index} className={styles.ruleItem}>
+              <span className={styles.ruleNumber}>{index + 1}</span>
+              <p>{rule}</p>
+            </li>
+          ))}
+        </ol>
+      </section> */
