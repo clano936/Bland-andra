@@ -94,7 +94,7 @@ function App() {
 
     const matchesCategory =
       selectedCategories.length === 0 ||
-      selectedCategories.some((cat) => game.categories[cat]);
+      selectedCategories.every((cat) => game.categories[cat]);
 
     const matchesTime =
       game.time >= filters.minTime && game.time <= filters.maxTime;
