@@ -96,7 +96,10 @@ function App() {
       selectedCategories.length === 0 ||
       selectedCategories.some((cat) => game.categories[cat]);
 
-    return matchesCategory;
+    const matchesTime =
+      game.time >= filters.minTime && game.time <= filters.maxTime;
+
+    return matchesCategory && matchesTime;
   });
 
   return (
