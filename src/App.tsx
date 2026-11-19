@@ -1,6 +1,5 @@
 import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
-import Register from './components/Register';
 
 import styles from './App.module.css';
 //import FilterPanel from './components/FilterPanel';
@@ -115,7 +114,6 @@ function App() {
         onFilterChange={setFilters}
         filters={filters}
       />
-      <Register />
       <GameList games={filteredGames} loading={loading} />
     </section>
   );
