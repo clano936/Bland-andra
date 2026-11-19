@@ -4,7 +4,7 @@ export interface GameProps {
   description: string;
   time: number;
   maxPeople: number;
-  minPeopel: number;
+  minPeople: number;
   imageUrl: string;
   categories: {
     spicy: boolean;

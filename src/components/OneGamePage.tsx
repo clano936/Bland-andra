@@ -68,6 +68,18 @@ export default function OneGamePage() {
   function onBack() {
     void navigate('/');
   }
+
+  const rulesList = game.rules
+    ? Object.entries(game.rules)
+        .sort(([keyA], [keyB]) => {
+          // Plockar ut siffran i "rule1", "rule2" så att 10 hamnar efter 9
+          const numA = parseInt(keyA.replace(/\D/g, ''), 10) || 0;
+          const numB = parseInt(keyB.replace(/\D/g, ''), 10) || 0;
+          return numA - numB;
+        })
+        .map(([_, ruleText]) => ruleText)
+    : [];
+
   return (
     <main className={styles.container}>
       {/* Header */}
@@ -87,7 +99,9 @@ export default function OneGamePage() {
       <div className={styles.statsGrid}>
         <div className={styles.statCard}>
           <div>👥</div>
-          <strong>{game.name}</strong>
+          <strong>
+            {game.minPeople} - {game.maxPeople}
+          </strong>
         </div>
         <div className={styles.statCard}>
           <div>⏱️</div>
@@ -103,19 +117,18 @@ export default function OneGamePage() {
       <div className={styles.imageWrapper}>
         <img src={'/' + game.imageUrl} className={styles.gameImage} />
       </div>
-      {/* Regler */}
-    </main>
-  );
-}
 
-/**<section className={styles.rulesSection}>
-        <h2>Så spelar ni</h2>
-        <ol className={styles.ruleList}>
-          {game.rules.map((rule, index) => (
-            <li key={index} className={styles.ruleItem}>
-              <span className={styles.ruleNumber}>{index + 1}</span>
-              <p>{rule}</p>
+      {/* Regler */}
+      <section className={styles.rules}>
+        <ol className={styles.rulesList}>
+          {rulesList.map((rule, index) => (
+            <li key={id} className={styles.ruleCard}>
+              <span className={styles.stepNumber}>{index + 1}</span>
+              <p className={styles.ruleText}>{rule.trim()}</p>
             </li>
           ))}
         </ol>
-      </section> */
+      </section>
+    </main>
+  );
+}
