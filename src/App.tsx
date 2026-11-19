@@ -101,12 +101,11 @@ function App() {
       selectedCategories.length === 0 ||
       selectedCategories.every((cat) => game.categories[cat]);
 
-    const matchesTime =
-      game.time >= filters.minTime && game.time <= filters.maxTime;
+    const matchesTime = game.time >= filters.minTime && game.time <= filters.maxTime;
 
     return matchesCategory && matchesTime;
   });
-
+  // här skrivs allt ut.
   return (
     <section className={styles.page}>
       <Header

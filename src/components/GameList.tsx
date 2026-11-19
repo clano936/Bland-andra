@@ -8,7 +8,7 @@ interface GameListProps {
 
 export default function GameList({ games, loading }: GameListProps) {
   if (loading) {
-    return <p> sHämtar spel från databasen...</p>;
+    return <p> Hämtar spel från databasen...</p>;
   }
   if (games.length === 0) {
     return <p> Inga spel matchade din sökning.</p>;

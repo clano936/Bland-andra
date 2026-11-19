@@ -3,7 +3,8 @@ export interface GameProps {
   name: string;
   description: string;
   time: number;
-  people: number;
+  maxPeople: number;
+  minPeopel: number;
   imageUrl: string;
   categories: {
     spicy: boolean;
@@ -14,4 +15,5 @@ export interface GameProps {
     flexible: boolean;
     saved: boolean;
   };
+  rules: string[];
 }
