@@ -20,7 +20,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .categoryBadge {
@@ -28,12 +28,11 @@
   align-items: center;
   gap: 0.35rem;
   background-color: rgba(255, 255, 255, 0.95);
-  color: #1f2937;
-  font-size: 0.8125rem;
+  color: #0f123c;
+  font-size: 0.5rem;
   font-weight: 600;
   padding: 0.35rem 0.75rem;
   border-radius: 9999px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 .navRow {
@@ -77,10 +76,9 @@
 }
 
 .statCard {
-  background: white;
-  padding: 0.75rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  background: rgb(235, 218, 255);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 /* Behållaren runt bilden, ger runda hörn och skugga */
@@ -88,7 +86,6 @@
   width: 100%;
   border-radius: 1.5px;
   overflow: hidden; /* Klipper bilden så hörnen blir runda */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 1.5rem;
 }
 .gameimage {
