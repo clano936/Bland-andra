@@ -105,7 +105,6 @@ export default function OneGamePage() {
             })}
         </div>
       </header>
-
       {/* Snabbfakta i 3 kolumner */}
       <div className={styles.statsGrid}>
         <div className={styles.statCard}>
@@ -123,12 +122,14 @@ export default function OneGamePage() {
           <strong>{game.time}</strong>
         </div>
       </div>
-
       {/*Bild */}
-      <div className={styles.imageWrapper}>
-        <img src={'/' + game.imageUrl} className={styles.gameImage} />
-      </div>
+      {game.imageUrl !== 'bild' && ( // om bildens url inte är standard bild dvs inte fins
+        <div className={styles.imageWrapper}>
+          <img src={'/' + game.imageUrl} className={styles.gameImage} />
+        </div>
+      )}
 
+      {/**Rules */}
       <ol className={styles.rulesList}>
         {Object.entries(game.rules).map(([ruleKey, ruleText], index) => (
           /* ruleKey är t.ex. "rule1", vilket ESLint älskar! */
