@@ -16,4 +16,6 @@ export interface GameProps {
     saved: boolean;
   };
   rules: string[];
+  hasCards?: boolean;
+  cards?: string[];
 }

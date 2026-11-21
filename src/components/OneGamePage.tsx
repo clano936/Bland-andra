@@ -19,6 +19,15 @@ async function getGameById(id: string | undefined): Promise<GameProps | undefine
   return { ...snapshot.val(), id } as GameProps;
 }
 
+const CATEGORY_INFO: Record<string, { label: string; symbol: string }> = {
+  family: { label: 'Familj', symbol: ':)' },
+  drinking: { label: 'Fest', symbol: ';)' },
+  spicy: { label: 'Spicy', symbol: ';)' },
+  love: { label: 'Kärlek', symbol: ':)' },
+  deep: { label: 'Djup', symbol: ':)' },
+  flexible: { label: 'Flexibel', symbol: 'F' }
+};
+
 export default function OneGamePage() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -69,17 +78,6 @@ export default function OneGamePage() {
     void navigate('/');
   }
 
-  const rulesList = game.rules
-    ? Object.entries(game.rules)
-        .sort(([keyA], [keyB]) => {
-          // Plockar ut siffran i "rule1", "rule2" så att 10 hamnar efter 9
-          const numA = parseInt(keyA.replace(/\D/g, ''), 10) || 0;
-          const numB = parseInt(keyB.replace(/\D/g, ''), 10) || 0;
-          return numA - numB;
-        })
-        .map(([_, ruleText]) => ruleText)
-    : [];
-
   return (
     <main className={styles.container}>
       {/* Header */}
@@ -90,9 +88,22 @@ export default function OneGamePage() {
           </button>
           <button className={styles.pillButton}>♡ Spara</button>
         </div>
-        <div className={styles.emoji}>{game.name}</div>
         <h1 className={styles.title}>{game.name}</h1>
-        <p>{game.name}</p>
+        <p className={styles.description}>{game.description}</p>
+        {/* Filtrera ut alla aktiva kategorier (förutom "saved") */}
+        <div className={styles.categoryBadges}>
+          {Object.entries(game.categories)
+            .filter(([key, isActive]) => isActive && key in CATEGORY_INFO)
+            .map(([key]) => {
+              const { label, symbol } = CATEGORY_INFO[key];
+              return (
+                <span key={key} className={styles.categoryBadge}>
+                  <span aria-hidden="true">{symbol}</span>
+                  <span>{label}</span>
+                </span>
+              );
+            })}
+        </div>
       </header>
 
       {/* Snabbfakta i 3 kolumner */}
@@ -118,17 +129,16 @@ export default function OneGamePage() {
         <img src={'/' + game.imageUrl} className={styles.gameImage} />
       </div>
 
-      {/* Regler */}
-      <section className={styles.rules}>
-        <ol className={styles.rulesList}>
-          {rulesList.map((rule, index) => (
-            <li key={id} className={styles.ruleCard}>
-              <span className={styles.stepNumber}>{index + 1}</span>
-              <p className={styles.ruleText}>{rule.trim()}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
+      <ol className={styles.rulesList}>
+        {Object.entries(game.rules).map(([ruleKey, ruleText], index) => (
+          /* ruleKey är t.ex. "rule1", vilket ESLint älskar! */
+          <li key={ruleKey} className={styles.ruleCard}>
+            {/* index + 1 visar snyggt 1, 2, 3... för användaren */}
+            <span className={styles.ruleNumber}>{index + 1}</span>
+            <p className={styles.ruleText}>{ruleText.trim()}</p>
+          </li>
+        ))}
+      </ol>
     </main>
   );
 }
