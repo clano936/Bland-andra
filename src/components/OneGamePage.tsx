@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 
 import { db } from '../firebase';
 import type { GameProps } from '../types/game';
+import OneGameCardDeck from './OneGameCardDeck';
 import styles from './OneGamePage.module.css';
 
 async function getGameById(id: string | undefined): Promise<GameProps | undefined> {
@@ -35,6 +36,7 @@ export default function OneGamePage() {
   const [game, setGame] = useState<GameProps | undefined>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isGameActive, setIsGameActive] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -140,6 +142,36 @@ export default function OneGamePage() {
           </li>
         ))}
       </ol>
+
+      {/* Visa bara startknappen om spelet faktiskt har kort */}
+      {game.hasCards && game.cards && game.cards.length > 0 && (
+        <div style={{ padding: '0 1.25rem', marginBottom: '1.5rem' }}>
+          <button
+            className={styles.pillButton}
+            style={{
+              width: '100%',
+              padding: '1rem',
+              background: 'linear-gradient(135deg, #f97316, #ea580c)',
+              color: 'white',
+              fontSize: '1.1rem'
+            }}
+            onClick={() => setIsGameActive(true)}
+          >
+            🎮 Starta spelet & visa kort
+          </button>
+        </div>
+      )}
+
+      {/* Kortleks-overlayen när spelet är igång */}
+      {isGameActive && game.cards && (
+        <OneGameCardDeck
+          cards={game.cards}
+          gameName={game.name}
+          onClose={() => setIsGameActive(false)}
+        />
+      )}
+
+      {/* ...regellistan m.m... */}
     </main>
   );
 }

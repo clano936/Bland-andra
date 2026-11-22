@@ -1,0 +1,172 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.deckContainer {
+  background: #faf8f5;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deckTitle {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1f2937;
+}
+
+.closeBtn {
+  background: #e5e7eb;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Själva spelkortet */
+.card {
+  background: white;
+  min-height: 220px;
+  border-radius: 1.25rem;
+  border: 2px solid #fed7aa;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(249, 115, 22, 0.12);
+  position: relative;
+  touch-action: none; /* Viktigt! Hindrar sidan från att skrolla när man drar */
+}
+
+.cardBadge {
+  position: absolute;
+  top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.cardText {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.4;
+}
+
+/* Nästa-knapp */
+.primaryBtn {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+  transition: transform 0.1s ease;
+}
+
+.primaryBtn:active {
+  transform: scale(0.98);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Svep-ut animationer */
+.flyOut_right {
+  animation: flyRight 0.22s forwards ease-out;
+}
+
+.flyOut_left {
+  animation: flyLeft 0.22s forwards ease-out;
+}
+
+@keyframes flyRight {
+  to {
+    transform: translateX(150%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyLeft {
+  to {
+    transform: translateX(-150%) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+/* Knappar i botten */
+.footerControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+
+.actionBtnPass,
+.actionBtnDone {
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.actionBtnPass {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.actionBtnDone {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.hintText {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
