@@ -64,7 +64,7 @@ export default function OneGameCardDeck({
     }
     setIsDragging(false);
 
-    const SWIPE_THRESHOLD = 90; // Pixlar att dra för att trigga swipe
+    const SWIPE_THRESHOLD = 40; // Pixlar att dra för att trigga swipe
 
     if (dragOffset.x > SWIPE_THRESHOLD) {
       // Swipe höger (t.ex. Klar / Poäng)
@@ -97,28 +97,6 @@ export default function OneGameCardDeck({
 
         {/* Spelkortet */}
 
-        {/* Instruktion / Hjälpknappar */}
-        <div className={styles.footerControls}>
-          <button
-            className={styles.actionBtnPass}
-            onClick={() => {
-              setSwipeOutDirection('left');
-              setTimeout(handleNextCard, 220);
-            }}
-          >
-            ← Passa
-          </button>
-          <span className={styles.hintText}>Svep kortet</span>
-          <button
-            className={styles.actionBtnDone}
-            onClick={() => {
-              setSwipeOutDirection('right');
-              setTimeout(handleNextCard, 220);
-            }}
-          >
-            Klar →
-          </button>
-        </div>
         {/* Det aktiva kortet man sveper */}
         <div
           className={`${styles.card} ${styles.activeCard} ${
@@ -139,10 +117,10 @@ export default function OneGameCardDeck({
         >
           {/* Tinder-stämplar vid swipe */}
           {dragOffset.x > 35 && (
-            <span className={`${styles.stamp} ${styles.stampRight}`}>KLAR 👍</span>
+            <span className={`${styles.stamp} ${styles.stampRight}`}>KLAR</span>
           )}
           {dragOffset.x < -35 && (
-            <span className={`${styles.stamp} ${styles.stampLeft}`}>PASSA ⏩</span>
+            <span className={`${styles.stamp} ${styles.stampLeft}`}>PASSA</span>
           )}
           <span className={styles.cardBadge}>
             Kort {currentIndex + 1} av {deck.length}

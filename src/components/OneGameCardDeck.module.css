@@ -77,24 +77,6 @@
   line-height: 1.4;
 }
 
-/* Nästa-knapp */
-.primaryBtn {
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  color: white;
-  border: none;
-  border-radius: 1rem;
-  padding: 1rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
-  transition: transform 0.1s ease;
-}
-
-.primaryBtn:active {
-  transform: scale(0.98);
-}
-
 @keyframes pulse {
   0%,
   100% {
@@ -106,25 +88,24 @@
 }
 
 /* Svep-ut animationer */
+
 .flyOut_right {
-  animation: flyRight 0.22s forwards ease-out;
+  animation: flyRight 0.22s forwards;
 }
 
 .flyOut_left {
-  animation: flyLeft 0.22s forwards ease-out;
+  animation: flyLeft 0.22s forwards;
 }
 
 @keyframes flyRight {
   to {
     transform: translateX(150%) rotate(25deg);
-    opacity: 0;
   }
 }
 
 @keyframes flyLeft {
   to {
     transform: translateX(-150%) rotate(-25deg);
-    opacity: 0;
   }
 }
 
