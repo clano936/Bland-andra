@@ -1,0 +1,146 @@
+.overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  align-items: end;
+  padding: 20px;
+  background: var(--color-overlay);
+  backdrop-filter: blur(7px);
+}
+
+.panel {
+  width: min(100%, 520px);
+  max-height: calc(100svh - 40px);
+  margin: 0 auto;
+  padding: 24px;
+  overflow-y: auto;
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-large);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.closeButton {
+  min-height: 42px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-purple-soft);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.section {
+  padding: 18px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.sectionTitle {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.value {
+  margin-bottom: 12px;
+  color: var(--color-text-muted);
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--color-brand-purple-dark);
+  cursor: pointer;
+}
+
+.durationRanges {
+  display: grid;
+  gap: 12px;
+}
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category {
+  position: relative;
+  cursor: pointer;
+}
+
+.category input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.categoryText {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 8px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-soft);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.category input:checked + .categoryText {
+  border-color: var(--color-brand-purple-dark);
+  color: var(--color-text-on-brand);
+  background: var(--color-brand-purple);
+}
+
+.category input:focus-visible + .categoryText {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.buttons {
+  position: sticky;
+  bottom: -24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 10px -24px -24px;
+  padding: 18px 24px 24px;
+  background: var(--color-surface);
+}
+
+.resetButton,
+.applyButton {
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.resetButton {
+  border: 2px solid var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.applyButton {
+  color: var(--color-text-on-brand);
+  background: var(--color-brand-purple-dark);
+}
+
+@media (min-width: 680px) {
+  .overlay {
+    align-items: center;
+  }
+}

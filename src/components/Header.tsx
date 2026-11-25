@@ -1,9 +1,8 @@
 import { useState } from 'react';
-
-import styles from '../App.module.css';
 import logga from '../assets/logga.png';
 import type { FilterValues } from '../types/filterValues';
 import FilterPanel from './FilterPanel';
+import styles from './Header.module.css';
 import SearchBar from './SearchBar';
 
 interface HeaderProps {
@@ -19,29 +18,45 @@ export default function Header({
   filters,
   onFilterChange
 }: HeaderProps) {
-  // Styr om filterpanelen ska synas eller inte
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  return (
-    <section className="header">
-      <div className="logo">
-        <img src={logga} className={styles.base} width="170" height="179" alt="" />
-      </div>
-      <div className="serchBar">
-        <SearchBar value={search} onChange={onSearchChange} />
-      </div>
-      <div>
-        {/* Knapp som öppnar filterpanelen */}
-        <button onClick={() => setIsFilterOpen(!isFilterOpen)}>Filter</button>
 
-        {/* Visa filterpanelen endast när isFilterOpen är true */}
-        {isFilterOpen && (
-          <FilterPanel
-            filters={filters}
-            onChange={onFilterChange}
-            onClose={() => setIsFilterOpen(false)}
-          />
-        )}
+  return (
+    <header className={styles.header}>
+      <div className={styles.hero}>
+        <h1 className={styles.title}>Bland andra</h1>
       </div>
-    </section>
+
+      <div className={styles.controls}>
+        <div className={styles.logoButton}>
+          <img
+            src={logga}
+            className={styles.logo}
+            width="52"
+            height="52"
+            alt="Bland andra"
+          />
+        </div>
+
+        <SearchBar value={search} onChange={onSearchChange} />
+
+        <button
+          type="button"
+          className={styles.filterButton}
+          onClick={() => setIsFilterOpen((current) => !current)}
+          aria-label="Öppna filter"
+          aria-expanded={isFilterOpen}
+        >
+          <span className={styles.filterText}>Filter</span>
+        </button>
+      </div>
+
+      {isFilterOpen && (
+        <FilterPanel
+          filters={filters}
+          onChange={onFilterChange}
+          onClose={() => setIsFilterOpen(false)}
+        />
+      )}
+    </header>
   );
 }

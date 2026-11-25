@@ -1,19 +1,25 @@
-/*CSS for the main application */
-/*Relation between
-- Header
-- GameList
-- Content loaded on the page*/
-
 .page {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
+  width: min(100%, var(--page-max-width));
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--gradient-page);
+  box-shadow: var(--shadow-large);
+}
 
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
+.statusMessage {
+  width: min(100% - 40px, var(--content-max-width));
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: var(--radius-medium);
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-small);
+  text-align: center;
+}
+
+@media (min-width: 721px) {
+  .page {
+    border-inline: 6px solid var(--color-text);
   }
 }

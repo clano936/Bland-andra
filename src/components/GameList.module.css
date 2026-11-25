@@ -1,0 +1,34 @@
+.gameSection {
+  min-height: calc(100svh - 300px);
+  padding: 22px clamp(22px, 7vw, 52px) 70px;
+  background: var(--gradient-page);
+}
+
+.heading {
+  margin: 0 0 18px;
+  color: var(--color-text-on-yellow);
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.gameGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.message {
+  padding: 24px;
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-small);
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .gameGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
