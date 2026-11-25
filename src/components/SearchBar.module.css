@@ -38,9 +38,9 @@
   background: var(--color-brand-purple-soft);
   font-size: 1.1rem;
   transition:
-    border-color 160ms ease,
-    background 160ms ease,
-    box-shadow 160ms ease;
+    border-color var(--control-duration) var(--control-easing),
+    background var(--control-duration) var(--control-easing),
+    box-shadow var(--control-duration) var(--control-easing);
 }
 
 .searchInput::placeholder {
@@ -55,7 +55,7 @@
 .searchInput:focus {
   border-color: var(--color-brand-purple-dark);
   outline: none;
-  box-shadow: 0 0 0 4px var(--color-brand-purple-soft);
+  box-shadow: var(--shadow-focus);
 }
 
 @media (max-width: 440px) {

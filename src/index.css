@@ -2,75 +2,144 @@
    CENTRALA CSS VARIABLER
    ================================================== */
 
+@font-face {
+  font-family: 'Chicle';
+  src:
+    local ('Chicle'),
+    url(fonts/Chicle/Chicle-Regular.ttf) format('truetype');
+}
+
 :root {
   /* Brand */
-  --color-brand-purple: #a76dad;
-  --color-brand-purple-dark: #713174;
-  --color-brand-purple-soft: #ead8ec;
-  --color-brand-yellow: #ffe15a;
-  --color-brand-orange: #efaa4e;
-  --color-brand-orange-light: #f5bd70;
-  --color-brand-pink: #efb4d7;
+  --color-brand-purple: oklch(0.618812 0.114168 323.5155);
+  --color-brand-purple-dark: oklch(0.427618 0.127476 325.7775);
+  --color-brand-purple-soft: oklch(0.902681 0.033119 322.7724);
+  --color-brand-yellow: oklch(0.910522 0.154006 96.6297);
+  --color-brand-orange: oklch(0.787229 0.134175 71.2966);
+  --color-brand-orange-light: oklch(0.833301 0.114567 73.9267);
+  --color-brand-pink: oklch(0.834139 0.081633 342.6683);
 
   /* Ytor */
-  --color-page-background: #f8d967;
-  --color-surface: #ffffff;
-  --color-surface-soft: #fffaf3;
-  --color-surface-muted: #f3e8f4;
+  --color-page-background: oklch(0.889517 0.137072 94.2363);
+  --color-surface: oklch(1 0 0);
+  --color-surface-soft: oklch(0.98703 0.010688 76.6004);
+  --color-surface-muted: oklch(0.943095 0.019786 323.2308);
   --color-card-background: var(--color-brand-orange);
-  --color-overlay: rgba(31, 23, 31, 0.7);
+  --color-overlay: oklch(0.217946 0.019595 326.2241 / 0.7);
 
   /* Text */
-  --color-text: #3e3540;
-  --color-text-muted: #756d77;
-  --color-text-heading: #4b224e;
-  --color-text-on-brand: #ffffff;
-  --color-text-on-yellow: #7d347f;
+  --color-text: oklch(0.342745 0.02246 320.1019);
+  --color-text-muted: oklch(0.545392 0.018091 319.4535);
+  --color-text-heading: oklch(0.328334 0.089796 324.7687);
+  --color-text-on-brand: oklch(1 0 0);
+  --color-text-on-yellow: oklch(0.454948 0.140576 326.5386);
 
   /* Linjer och kontroller */
-  --color-border: #e4d7e5;
-  --color-border-strong: #cfb8d2;
-  --color-focus: #713174;
-  --color-control-track: #ddd4df;
-  --color-scrollbar: #aaa5a2;
+  --color-border: oklch(0.893686 0.023504 323.6245);
+  --color-border-strong: oklch(0.810056 0.043942 322.3361);
+  --color-focus: oklch(0.427618 0.127476 325.7775);
+  --color-control-track: oklch(0.880344 0.017778 320.0603);
+  --color-scrollbar: oklch(0.725208 0.007225 53.4063);
 
   /* Statusfärger */
-  --color-success: #24784d;
-  --color-success-background: #dff3e7;
-  --color-danger: #ad4b31;
-  --color-danger-background: #fde4d8;
+  --color-success: oklch(0.511146 0.10534 156.7235);
+  --color-success-background: oklch(0.946088 0.026421 159.5788);
+  --color-danger: oklch(0.535514 0.13485 35.859);
+  --color-danger-background: oklch(0.935955 0.031971 47.3528);
 
   /* Skuggor */
-  --shadow-small: 0 4px 10px rgba(67, 37, 69, 0.12);
-  --shadow-medium: 0 12px 30px rgba(67, 37, 69, 0.18);
-  --shadow-large: 0 24px 60px rgba(31, 23, 31, 0.28);
-  --shadow-button: 0 4px 0 rgba(67, 37, 69, 0.18);
+  --shadow-small: 0 4px 10px oklch(0.317071 0.067708 324.7722 / 0.12);
+  --shadow-medium: 0 12px 30px oklch(0.317071 0.067708 324.7722 / 0.18);
+  --shadow-large: 0 24px 60px oklch(0.217946 0.019595 326.2241 / 0.28);
+  --shadow-button: 0 4px 0 oklch(0.317071 0.067708 324.7722 / 0.18);
+  --shadow-filter-lines: 0 9px 0 var(--color-text-muted);
+  --shadow-filter-knobs: 14px 9px 0 var(--color-surface), 4px 18px 0 var(--color-surface);
 
   /* Gradienter */
-  --gradient-page:
-    linear-gradient(
-      180deg,
-      var(--color-brand-yellow) 0%,
-      var(--color-brand-yellow) 28%,
-      var(--color-brand-orange-light) 60%,
-      var(--color-brand-pink) 82%,
-      var(--color-brand-purple-soft) 100%
-    );
+  --gradient-page: linear-gradient(
+    180deg,
+    var(--color-brand-yellow) 0%,
+    var(--color-brand-yellow) 28%,
+    var(--color-brand-orange-light) 60%,
+    var(--color-brand-pink) 82%,
+    var(--color-brand-purple-soft) 100%
+  );
 
-  --gradient-detail:
-    linear-gradient(
-      145deg,
-      var(--color-brand-yellow),
-      var(--color-brand-orange)
-    );
+  --gradient-detail: linear-gradient(
+    145deg,
+    var(--color-brand-yellow),
+    var(--color-brand-orange)
+  );
+
+  /* Semantiska roller: byt dessa för att ändra en hel typ av yta. */
+  --color-detail-background: var(--color-surface-soft);
+  --color-card-hover: var(--color-brand-orange-light);
+  --color-text-on-card: var(--color-text-heading);
+  --color-stat-background: var(--color-brand-purple-soft);
+  --color-category-background: color-mix(in oklch, var(--color-surface) 95%, transparent);
+  --color-rule-number-background: var(--color-brand-orange);
+  --color-rule-number-text: var(--color-text-heading);
+  --color-deck-card-border: var(--color-brand-orange-light);
+  --color-selected-background: var(--color-brand-purple-dark);
+  --color-selected-border: var(--color-brand-purple-dark);
+  --color-selected-text: var(--color-text-on-brand);
+
+  /* Gemensamma knappar: form, storlek och rörelse. */
+  --button-radius: var(--radius-pill);
+  --button-min-height: 44px;
+  --button-padding-block: 8px;
+  --button-padding-inline: 16px;
+  --button-border-width: 2px;
+  --button-font-size: 0.875rem;
+  --button-font-weight: 700;
+  --button-shadow: var(--shadow-button);
+  --button-hover-shadow: var(--shadow-small);
+  --control-duration: 160ms;
+  --control-easing: ease;
+  --focus-outline: 3px solid var(--color-focus);
+  --focus-offset: 3px;
+  --shadow-focus: 0 0 0 4px var(--color-brand-purple-soft);
+  --disabled-opacity: 0.5;
+
+  /* Knappvarianter: moduler väljer en roll, aldrig en egen färg. */
+  --button-default-background: var(--color-brand-purple-soft);
+  --button-default-hover: var(--color-surface-muted);
+  --button-default-text: var(--color-text-heading);
+  --button-default-border: transparent;
+  --button-primary-background: var(--color-brand-purple-dark);
+  --button-primary-hover: var(--color-text-heading);
+  --button-primary-text: var(--color-text-on-brand);
+  --button-primary-border: transparent;
+  --button-surface-background: var(--color-surface);
+  --button-surface-hover: var(--color-surface-muted);
+  --button-surface-text: var(--color-text);
+  --button-surface-border: var(--color-border-strong);
+  --button-success-background: var(--color-success-background);
+  --button-success-hover: color-mix(
+    in oklch,
+    var(--color-success-background) 88%,
+    var(--color-success)
+  );
+  --button-success-text: var(--color-success);
+  --button-danger-background: var(--color-danger-background);
+  --button-danger-hover: color-mix(
+    in oklch,
+    var(--color-danger-background) 88%,
+    var(--color-danger)
+  );
+  --button-danger-text: var(--color-danger);
+  --button-logo-background: var(--color-brand-yellow);
+  --button-logo-hover: var(--color-brand-orange-light);
 
   /* Typografi */
-  --font-body:
-    Inter, ui-rounded, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
-    sans-serif;
+  --font-body: sans-serif;
 
-  --font-display:
-    Georgia, "Times New Roman", serif;
+  --font-display: Chicle, sans-serif;
+
+  --font-size-hero: 5.3rem;
+  --font-size-section: 2.4rem;
+  --font-size-card-title: 2.2rem;
+  --font-size-detail-title: 2rem;
 
   /* Radier */
   --radius-small: 10px;
@@ -116,18 +185,15 @@ body {
   background: var(--color-brand-purple);
 }
 
-body,
-button,
-input {
+:where(body, button, input, select, textarea) {
   font: inherit;
 }
 
-button,
-input {
+:where(button, input, select, textarea) {
   color: inherit;
 }
 
-button {
+:where(button) {
   border: 0;
 }
 
@@ -171,8 +237,8 @@ p {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-focus);
-  outline-offset: 3px;
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
 
 ::selection {
@@ -180,9 +246,116 @@ p {
   background: var(--color-brand-purple-dark);
 }
 
+/* ==================================================
+   GEMENSAM KNAPPSTIL
+   CSS Modules använder: composes: button from global;
+   Vanliga knappar får samma grundstil automatiskt.
+   ================================================== */
+
+:where(button, [role='button'], .button) {
+  --button-background: var(--button-default-background);
+  --button-hover-background: var(--button-default-hover);
+  --button-text: var(--button-default-text);
+  --button-border: var(--button-default-border);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: var(--button-min-height);
+  max-width: 100%;
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  border: var(--button-border-width) solid var(--button-border);
+  border-radius: var(--button-radius);
+  color: var(--button-text);
+  background: var(--button-background);
+  box-shadow: var(--button-shadow);
+  font-family: var(--font-body);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  transition:
+    background var(--control-duration) var(--control-easing),
+    color var(--control-duration) var(--control-easing),
+    border-color var(--control-duration) var(--control-easing),
+    box-shadow var(--control-duration) var(--control-easing),
+    transform var(--control-duration) var(--control-easing);
+}
+
+:where(.button--primary) {
+  --button-background: var(--button-primary-background);
+  --button-hover-background: var(--button-primary-hover);
+  --button-text: var(--button-primary-text);
+  --button-border: var(--button-primary-border);
+}
+
+:where(.button--surface) {
+  --button-background: var(--button-surface-background);
+  --button-hover-background: var(--button-surface-hover);
+  --button-text: var(--button-surface-text);
+  --button-border: var(--button-surface-border);
+}
+
+:where(.button--success) {
+  --button-background: var(--button-success-background);
+  --button-hover-background: var(--button-success-hover);
+  --button-text: var(--button-success-text);
+}
+
+:where(.button--danger) {
+  --button-background: var(--button-danger-background);
+  --button-hover-background: var(--button-danger-hover);
+  --button-text: var(--button-danger-text);
+}
+
+:where(button, [role='button'], .button):focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+@media (hover: hover) {
+  :where(button, [role='button'], .button):not(:disabled, [aria-disabled='true']):hover {
+    background: var(--button-hover-background);
+    box-shadow: var(--button-hover-shadow);
+    transform: translateY(-1px);
+  }
+}
+
+:where(button, [role='button'], .button):not(:disabled, [aria-disabled='true']):active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+:where(button, [role='button'], .button):is(:disabled, [aria-disabled='true']) {
+  opacity: var(--disabled-opacity);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 899px) {
+  :root {
+    --font-size-hero: 4rem;
+    --font-size-section: 2rem;
+    --font-size-card-title: 1.85rem;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     font-size: 15px;
+    --font-size-hero: 3.2rem;
+    --font-size-section: 1.8rem;
+    --font-size-card-title: 1.65rem;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --font-size-card-title: 1.55rem;
   }
 }
 

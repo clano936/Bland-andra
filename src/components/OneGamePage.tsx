@@ -83,7 +83,15 @@ export default function OneGamePage() {
   return (
     <main className={styles.container}>
       {/* Header */}
-      <header className={styles.header}>
+      {/*Bakrundsbild */}
+      {/* om bildens url inte är standard bild dvs inte fins*/}
+      {/* Bakgrundsbild */}
+      <header
+        className={`${styles.header} ${game.imageUrl ? styles.hasBackground : 'bild'}`}
+        style={
+          game.imageUrl ? { backgroundImage: `url(".${game.imageUrl}")` } : undefined
+        }
+      >
         <div className={styles.navRow}>
           <button className={styles.pillButton} onClick={onBack}>
             ← Alla spel
@@ -124,12 +132,6 @@ export default function OneGamePage() {
           <strong>{game.time}</strong>
         </div>
       </div>
-      {/*Bild */}
-      {game.imageUrl !== 'bild' && ( // om bildens url inte är standard bild dvs inte fins
-        <div className={styles.imageWrapper}>
-          <img src={'/' + game.imageUrl} className={styles.gameImage} />
-        </div>
-      )}
 
       {/**Rules */}
       <ol className={styles.rulesList}>

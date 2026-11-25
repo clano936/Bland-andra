@@ -36,12 +36,7 @@
 }
 
 .closeButton {
-  min-height: 42px;
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  background: var(--color-brand-purple-soft);
-  cursor: pointer;
-  font-weight: 700;
+  composes: button from global;
 }
 
 .section {
@@ -97,17 +92,21 @@
   background: var(--color-surface-soft);
   font-weight: 700;
   text-transform: capitalize;
+  transition:
+    background var(--control-duration) var(--control-easing),
+    border-color var(--control-duration) var(--control-easing),
+    color var(--control-duration) var(--control-easing);
 }
 
 .category input:checked + .categoryText {
-  border-color: var(--color-brand-purple-dark);
-  color: var(--color-text-on-brand);
-  background: var(--color-brand-purple);
+  border-color: var(--color-selected-border);
+  color: var(--color-selected-text);
+  background: var(--color-selected-background);
 }
 
 .category input:focus-visible + .categoryText {
-  outline: 3px solid var(--color-focus);
-  outline-offset: 3px;
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
 
 .buttons {
@@ -121,22 +120,25 @@
   background: var(--color-surface);
 }
 
+.resetButton {
+  composes: button from global;
+  --button-background: var(--button-surface-background);
+  --button-hover-background: var(--button-surface-hover);
+  --button-text: var(--button-surface-text);
+  --button-border: var(--button-surface-border);
+}
+
+.applyButton {
+  composes: button from global;
+  --button-background: var(--button-primary-background);
+  --button-hover-background: var(--button-primary-hover);
+  --button-text: var(--button-primary-text);
+  --button-border: var(--button-primary-border);
+}
+
 .resetButton,
 .applyButton {
   min-height: 48px;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.resetButton {
-  border: 2px solid var(--color-border-strong);
-  background: var(--color-surface);
-}
-
-.applyButton {
-  color: var(--color-text-on-brand);
-  background: var(--color-brand-purple-dark);
 }
 
 @media (min-width: 680px) {

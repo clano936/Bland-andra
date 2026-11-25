@@ -8,7 +8,6 @@
   justify-content: center;
   align-items: flex-end;
   padding: 42px clamp(22px, 7vw, 52px);
-  box-sizing: border-box;
 }
 
 .title {
@@ -16,11 +15,12 @@
   margin: 0;
   color: var(--color-brand-yellow);
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 11vw, 5.3rem);
+  font-size: var(--font-size-hero);
   font-weight: 900;
   line-height: 0.9;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .controls {
@@ -35,6 +35,18 @@
   background: var(--color-surface);
 }
 
+.logoButton {
+  composes: button from global;
+  --button-background: var(--button-logo-background);
+  --button-hover-background: var(--button-logo-hover);
+  overflow: hidden;
+}
+
+.filterButton {
+  composes: button from global;
+  position: relative;
+}
+
 .logoButton,
 .filterButton {
   width: 52px;
@@ -42,12 +54,7 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  border-radius: var(--radius-pill);
-}
-
-.logoButton {
-  overflow: hidden;
-  background: var(--color-brand-yellow);
+  padding: 0;
 }
 
 .logo {
@@ -55,13 +62,6 @@
   height: 100%;
   padding: 8px;
   object-fit: contain;
-}
-
-.filterButton {
-  position: relative;
-  padding: 0;
-  cursor: pointer;
-  background: var(--color-brand-purple-soft);
 }
 
 .filterButton::before,
@@ -73,7 +73,7 @@
   height: 4px;
   border-radius: var(--radius-pill);
   background: var(--color-text-muted);
-  box-shadow: 0 9px 0 var(--color-text-muted);
+  box-shadow: var(--shadow-filter-lines);
 }
 
 .filterButton::before {
@@ -84,18 +84,7 @@
   top: 15px;
   width: 7px;
   background: var(--color-surface);
-  box-shadow:
-    14px 9px 0 var(--color-surface),
-    4px 18px 0 var(--color-surface);
-}
-
-.filterButton:hover {
-  background: var(--color-brand-purple);
-}
-
-.filterButton:hover::before {
-  background: var(--color-surface);
-  box-shadow: 0 9px 0 var(--color-surface);
+  box-shadow: var(--shadow-filter-knobs);
 }
 
 .filterText {

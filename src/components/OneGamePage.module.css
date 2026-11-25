@@ -2,16 +2,19 @@
 .container {
   max-width: 440px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100svh;
   padding-bottom: 4rem;
-  font-family: system-ui, sans-serif;
-  background-color: #faf8f5;
+  font-family: var(--font-body);
+  background-color: var(--color-detail-background);
 }
 
 /* Solgul rundad toppsektion */
 .header {
-  background: linear-gradient(135deg, #fde047, #f97316);
+  background: var(--gradient-detail);
   padding: 1.5rem 1.25rem 2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .categoryBadges {
@@ -25,28 +28,27 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #0f123c;
+  background-color: var(--color-category-background);
+  color: var(--color-text-heading);
   font-size: 0.5rem;
   font-weight: 600;
   padding: 0.35rem 0.75rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
 }
 
 .navRow {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .pillButton {
-  background: white;
-  border: none;
-  border-radius: 9999px;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  font-size: 0.875rem;
-  cursor: pointer;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+  composes: button from global;
+  --button-background: var(--button-surface-background);
+  --button-hover-background: var(--button-surface-hover);
+  --button-text: var(--button-surface-text);
+  --button-border: var(--button-surface-border);
 }
 
 .emoji {
@@ -56,7 +58,9 @@
 
 .title {
   margin: 0.5rem 0 0.25rem;
-  font-size: 2rem;
+  font-family: var(--font-display);
+  font-size: var(--font-size-detail-title);
+  overflow-wrap: anywhere;
   font-weight: 800;
 }
 
@@ -67,35 +71,19 @@
 /* 3 kolumner för snabbfakta */
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
   padding: 1.25rem;
   text-align: center;
 }
 
 .statCard {
-  background: rgb(235, 218, 255);
+  background: var(--color-stat-background);
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-small);
+  overflow-wrap: anywhere;
 }
 
-/* Behållaren runt bilden, ger runda hörn och skugga */
-.imageWrapper {
-  width: 100%;
-  border-radius: 1.5px;
-  overflow: hidden; /* Klipper bilden så hörnen blir runda */
-  margin-bottom: 1.5rem;
-}
-.gameimage {
-  /* 1. Prevent unwanted inline spacing and treat as a block block element */
-
-  /* 2. Make it responsive (fluid sizing) */
-  max-width: 220px;
-  height: 100px;
-
-  /* 3. Control frame fitting (prevents squishing/stretching) */
-  object-fit: cover;
-}
 /* Numrerad regellista */
 .rulesSection {
   padding: 0 1.25rem;
@@ -111,11 +99,11 @@
 
 .ruleCard {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
-  background: white;
-  border: 2px solid #e5e7eb;
-  border-radius: 1rem;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-medium);
   padding: 1rem;
 }
 
@@ -123,8 +111,8 @@
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: #f97316;
-  color: white;
+  background: var(--color-rule-number-background);
+  color: var(--color-rule-number-text);
   display: grid;
   place-items: center;
   font-weight: bold;

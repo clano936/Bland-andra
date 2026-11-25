@@ -9,18 +9,18 @@
   padding: 18px;
   border: 0;
   border-radius: var(--radius-large);
-  color: var(--color-text-on-brand);
+  color: var(--color-text-on-card);
   background: var(--color-card-background);
   box-shadow: var(--shadow-small);
   text-decoration: none;
   transition:
-    transform 160ms ease,
-    box-shadow 160ms ease,
-    background 160ms ease;
+    transform var(--control-duration) var(--control-easing),
+    box-shadow var(--control-duration) var(--control-easing),
+    background var(--control-duration) var(--control-easing);
 }
 
 .gameCard:hover {
-  background: var(--color-brand-orange-light);
+  background: var(--color-card-hover);
   box-shadow: var(--shadow-medium);
   transform: translateY(-3px);
 }
@@ -53,9 +53,9 @@
 
 .title {
   margin: 0 0 4px;
-  color: var(--color-text-on-brand);
+  color: var(--color-text-on-card);
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 6vw, 2.2rem);
+  font-size: var(--font-size-card-title);
   font-weight: 900;
   line-height: 0.95;
   overflow-wrap: anywhere;
@@ -65,7 +65,7 @@
   display: -webkit-box;
   margin: 0;
   overflow: hidden;
-  color: var(--color-text-on-brand);
+  color: var(--color-text-on-card);
   font-size: 0.98rem;
   line-height: 1.15;
   -webkit-box-orient: vertical;
@@ -96,16 +96,11 @@
     grid-template-columns: 78px minmax(0, 1fr);
     gap: 10px 12px;
     padding: 14px;
-    border-radius: 22px;
   }
 
   .imageWrapper {
     width: 78px;
     height: 78px;
-  }
-
-  .title {
-    font-size: 1.55rem;
   }
 
   .description {

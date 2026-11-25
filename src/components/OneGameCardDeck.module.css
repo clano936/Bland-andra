@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--color-overlay);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -11,12 +11,15 @@
 }
 
 .deckContainer {
-  background: #faf8f5;
+  background: var(--color-detail-background);
   width: 100%;
   max-width: 400px;
-  border-radius: 1.5rem;
+  max-height: calc(100svh - 2rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: var(--radius-large);
   padding: 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-large);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -26,37 +29,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 
 .deckTitle {
   font-weight: 700;
   font-size: 1.1rem;
-  color: #1f2937;
+  color: var(--color-text-heading);
 }
 
 .closeBtn {
-  background: #e5e7eb;
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  cursor: pointer;
-  font-weight: bold;
+  composes: button from global;
+  width: var(--button-min-height);
+  height: var(--button-min-height);
+  flex-shrink: 0;
+  padding: 0;
 }
 
 /* Själva spelkortet */
 .card {
-  background: white;
+  background: var(--color-surface);
   min-height: 220px;
-  border-radius: 1.25rem;
-  border: 2px solid #fed7aa;
+  border-radius: var(--radius-medium);
+  border: 2px solid var(--color-deck-card-border);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0 8px 16px rgba(249, 115, 22, 0.12);
+  box-shadow: var(--shadow-small);
   position: relative;
   touch-action: none; /* Viktigt! Hindrar sidan från att skrolla när man drar */
 }
@@ -66,15 +68,16 @@
   top: 0.75rem;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #9ca3af;
+  color: var(--color-text-muted);
   text-transform: uppercase;
 }
 
 .cardText {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--color-text);
   line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 @keyframes pulse {
@@ -114,40 +117,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
   padding: 0 0.5rem;
 }
 
-.actionBtnPass,
-.actionBtnDone {
-  border: none;
-  border-radius: 9999px;
-  padding: 0.5rem 1rem;
-  font-weight: 700;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
 .actionBtnPass {
-  background: #ffedd5;
-  color: #c2410c;
+  composes: button from global;
+  --button-background: var(--button-danger-background);
+  --button-hover-background: var(--button-danger-hover);
+  --button-text: var(--button-danger-text);
 }
 
 .actionBtnDone {
-  background: #dcfce7;
-  color: #15803d;
+  composes: button from global;
+  --button-background: var(--button-success-background);
+  --button-hover-background: var(--button-success-hover);
+  --button-text: var(--button-success-text);
 }
 
 .hintText {
   font-size: 0.8rem;
-  color: #9ca3af;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  color: var(--color-text-muted);
 }
