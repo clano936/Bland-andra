@@ -1,5 +1,5 @@
 .header {
-  background: var(--color-brand-purple);
+  background: var(  --gradient-detail);
 }
 
 .hero {
@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding: 42px clamp(22px, 7vw, 52px);
+  padding: 22px;
 }
 
 .title {
@@ -43,7 +43,6 @@
 }
 
 .filterButton {
-  composes: button from global;
   position: relative;
 }
 
@@ -68,12 +67,13 @@
 .filterButton::after {
   content: "";
   position: absolute;
-  left: 13px;
+  left: 10px;
   width: 26px;
   height: 4px;
   border-radius: var(--radius-pill);
-  background: var(--color-text-muted);
-  box-shadow: var(--shadow-filter-lines);
+  /*STRECKEN PÅ FILTER BUTTON*/
+  background: var(--color-text-muted); /*Streck 1*/
+  box-shadow: var(--shadow-filter-lines1), var(--shadow-filter-lines2); /*Stteck 2 och 3*/
 }
 
 .filterButton::before {
@@ -99,7 +99,7 @@
 
 @media (max-width: 440px) {
   .hero {
-    min-height: 180px;
+    min-height: 80px;
   }
 
   .controls {
