@@ -20,7 +20,7 @@ function FilterPanel({ filters, onChange, onClose }: FilterPanelProps) {
     onChange({
       players: 2,
       minTime: 5,
-      maxTime: 120,
+      maxTime: 15,
       categories: {
         spicy: false,
         family: false,
@@ -76,7 +76,7 @@ function FilterPanel({ filters, onChange, onClose }: FilterPanelProps) {
           <input
             type="range"
             min="5"
-            max="120"
+            max="15"
             value={filters.minTime}
             onChange={(e) => onChange({ ...filters, minTime: Number(e.target.value) })}
           />
@@ -85,7 +85,7 @@ function FilterPanel({ filters, onChange, onClose }: FilterPanelProps) {
           <input
             type="range"
             min="5"
-            max="120"
+            max="15"
             value={filters.maxTime}
             onChange={(e) => onChange({ ...filters, maxTime: Number(e.target.value) })}
           />

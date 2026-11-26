@@ -1,4 +1,7 @@
 import { Link } from 'react-router';
+
+import clock from '../assets/Exporterade/Klocka.png';
+import person from '../assets/Exporterade/Personer.png';
 import type { GameProps } from '../types/game';
 import styles from './OneGame.module.css';
 
@@ -25,10 +28,13 @@ export default function OneGame({ game }: OneGameProps) {
 
       <div className={styles.metadata}>
         <span className={styles.metaBadge}>
-          👤 {game.minPeople}–{game.maxPeople}
+          <img src={person} alt="" style={{ height: '18px', width: '18px' }} />{' '}
+          {game.minPeople}–{game.maxPeople}
         </span>
 
-        <span className={styles.metaBadge}>◷ {game.time} min</span>
+        <span className={styles.metaBadge}>
+          <img src={clock} alt="" /> {game.time} min
+        </span>
       </div>
     </Link>
   );
