@@ -1,4 +1,13 @@
+import chili from '../assets/Exporterade/Chili.png';
+import heart from '../assets/Exporterade/Hjärta.png';
+import clock from '../assets/Exporterade/Klocka.png';
+import beer from '../assets/Exporterade/Öl.png';
+import person from '../assets/Exporterade/Personer.png';
+import flexible from '../assets/Exporterade/Rörlighet.png';
+import smile from '../assets/Exporterade/Smile.png';
+import deep from '../assets/Exporterade/Tankebubla.png';
 import type { FilterValues } from '../types/filterValues';
+import styles from './FilterPanel.module.css';
 
 interface FilterPanelProps {
   filters: FilterValues;
@@ -56,6 +65,7 @@ function FilterPanel({ filters, onChange, onClose }: FilterPanelProps) {
         <p>{filters.players} players</p>
 
         <div className="range-slider">
+          <img src={person} alt="" />
           <input
             type="range"
             min="2"
