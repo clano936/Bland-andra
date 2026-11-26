@@ -99,8 +99,15 @@ export default function OneGamePage() {
           <button className={styles.pillButton}>♡ Spara</button>
         </div>
         <h1 className={styles.title}>{game.name}</h1>
-        <p className={styles.description}>{game.description}</p>
-        {/* Filtrera ut alla aktiva kategorier (förutom "saved") */}
+        
+        
+        
+      </header>
+
+
+
+      <div className={styles.infoBackground}>
+          {/* Filtrera ut alla aktiva kategorier (förutom "saved") */}
         <div className={styles.categoryBadges}>
           {Object.entries(game.categories)
             .filter(([key, isActive]) => isActive && key in CATEGORY_INFO)
@@ -113,25 +120,25 @@ export default function OneGamePage() {
                 </span>
               );
             })}
+               <div className={styles.categoryBadge}>
+                    <div>👥 </div>
+                    <span>
+                      {game.minPeople} - {game.maxPeople}
+                    </span>
+                  </div>
+                  <div className={styles.categoryBadge}>
+                    <div>⏱️<br/></div>
+                    <span>{game.time} min</span>
+                  </div>
+                  <div className={styles.categoryBadge}>
+                    <div>⚡</div>
+                    <span>{game.time}</span>
+                  </div>
+              </div>
+
+              <p className={styles.description}>{game.description}</p>
         </div>
-      </header>
-      {/* Snabbfakta i 3 kolumner */}
-      <div className={styles.statsGrid}>
-        <div className={styles.statCard}>
-          <div>👥</div>
-          <strong>
-            {game.minPeople} - {game.maxPeople}
-          </strong>
-        </div>
-        <div className={styles.statCard}>
-          <div>⏱️</div>
-          <strong>{game.time} min</strong>
-        </div>
-        <div className={styles.statCard}>
-          <div>⚡</div>
-          <strong>{game.time}</strong>
-        </div>
-      </div>
+      
 
       {/**Rules */}
       <ol className={styles.rulesList}>

@@ -11,28 +11,26 @@
 /* Solgul rundad toppsektion */
 .header {
   background: var(--gradient-detail);
-  padding: 1.5rem 1.25rem 2rem;
-  background-size: cover;
+  padding: 0.2rem 0.2rem 6rem;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .categoryBadges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+
 }
 
 .categoryBadge {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
   background-color: var(--color-category-background);
   color: var(--color-text-heading);
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.35rem 0.75rem;
   border-radius: var(--radius-pill);
 }
 
@@ -62,26 +60,12 @@
   font-size: var(--font-size-detail-title);
   overflow-wrap: anywhere;
   font-weight: 800;
+  padding-left: 0.7rem;
 }
 
 .description {
   font-size: 1rem;
-}
-
-/* 3 kolumner för snabbfakta */
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem;
-  padding: 1.25rem;
-  text-align: center;
-}
-
-.statCard {
-  background: var(--color-stat-background);
-  padding: 0.5rem;
-  border-radius: var(--radius-small);
-  overflow-wrap: anywhere;
+  padding: 0.5rem 0.7rem;
 }
 
 /* Numrerad regellista */
@@ -117,4 +101,11 @@
   place-items: center;
   font-weight: bold;
   flex-shrink: 0;
+}
+
+.infoBackground {
+  background: var(--color-card-background);
+  padding: 0.3rem;
+  
+  border-radius: var(--radius-medium);
 }

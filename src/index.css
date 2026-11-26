@@ -22,7 +22,7 @@
   /* Ytor */
   --color-page-background: oklch(0.889517 0.137072 94.2363);
   --color-surface: oklch(1 0 0);
-  --color-surface-soft: oklch(0.98703 0.010688 76.6004);
+  --color-surface-soft: oklch(98.703% 0.01058 76.455 / 0.955);
   --color-surface-muted: oklch(0.943095 0.019786 323.2308);
   --color-card-background: var(--color-brand-orange);
   --color-overlay: oklch(0.217946 0.019595 326.2241 / 0.7);
